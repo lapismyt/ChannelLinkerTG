@@ -8,7 +8,7 @@ with open('link.txt', 'r') as file:
 
 bot = telebot.TeleBot(token)
 
-@bot.channel_post_handler()
+@bot.channel_post_handler(content_types=['text', 'photo'])
 def add_link_to_post(message):
     channel_id = message.chat.id
     post_id = message.message_id
