@@ -13,7 +13,7 @@ def add_link_to_post(message):
     channel_id = message.chat.id
     post_id = message.message_id
     text = message.text
-    bot.edit_message_text(chat_id=channel_id, message_id=post_id, text=text + '\n\n' + link, parse_mode='markdown', diaable_web_page_preview=True)
+    bot.edit_message_text(chat_id=channel_id, message_id=post_id, text=text + '\n\n' + link, parse_mode='markdown', link_preview=False)
 
 @bot.channel_post_handler(content_types=['photo'])
 def add_link_to_caption(message):
