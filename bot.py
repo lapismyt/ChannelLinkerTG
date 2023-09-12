@@ -10,9 +10,9 @@ bot = telebot.TeleBot(token)
 
 @bot.channel_post_handler()
 def add_link_to_post(message):
-    channel = message.chat.id
+    channel_id = message.chat.id
     post_id = message.message_id
-    caption = message.caption if message.caption else ''
-    bot.edit_message_caption(chat_id=channel, message_id=post_id, caption=caption + '\n\n' + link, parse_mode='markdown')
+    text = message.text
+    bot.edit_message_text(chat_id=channel_id, message_id=post_id, text=text + '\n\n' + link, parse_mode='markdown')
 
 bot.infinity_polling()
